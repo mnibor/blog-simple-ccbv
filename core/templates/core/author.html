@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+    Todos los Posts del autor: <strong>{{ author.username }} ({{ author.first_name }} {{ author.last_name }})</strong>
+</div>
+
+{% for post in author.get_posts.all %}
+
+    <div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-5">
+        <img src={{ post.image.url }} class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-7">
+        <div class="card-body">
+            <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
+            <h4 class="mb-0">{{ post.title }}</h4>
+            <div class="mb-1 text-muted">{{ post.created|date:"d M Y" }}</div>
+            <p class="card-text mb-auto">{{ post.excerpt }}</p>
+            <p class="card-text"><small class="text-muted"><a href={% url 'post' post.id %} class="stretched-link">Seguir leyendo</a></small></p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+{% endfor %}
+
+<hr>
+
+{% if request.path != '/' %}
+    <div class="my-3">
+        <a class="btn btn-success rounded-pill" href={% url 'home' %}>Volver al Inicio</a>
+    </div>
+{% endif %}
+{% endblock %}

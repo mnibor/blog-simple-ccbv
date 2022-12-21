@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<article class="blog-post">
+    <div class="col-auto d-none d-lg-block">
+        <img src={{ post.image.url }} class="img-fluid" alt="">
+    </div>
+
+    <strong class="d-inline-block mb-2 mt-3 text-primary"><a href={% url 'category' %}?cat={{ post.category.id }}>{{ post.category }}</a></strong>
+    <h2 class="blog-post-title mb-1">{{ post.title }}</h2>
+    <p class="blog-post-meta">{{ post.created|date:"d M Y" }} por <a href={% url 'author' %}?aut={{ post.author.id }}>{{ post.author }}</a></p>
+
+    <p class="lead my-3">{{ post.excerpt }}</p>
+    <hr>
+    <p>{{ post.content | safe }}</p>
+
+    <hr>
+
+    <strong>Etiquetas:</strong>
+    {% for tag in post.tags.all %}
+        <span class="badge text-bg-info">{{ tag.name|upper }}</span>
+    {% endfor %}
+</article>
+
+<div class="my-3">
+    <a class="btn btn-success rounded-pill" href={% url 'home' %}>Volver al Inicio</a>
+    {% if request.user == post.author %}
+        <a class="btn btn-danger rounded-pill float-end" href="#">Eliminar</a>
+        <a class="btn btn-info rounded-pill float-end" href="#">Editar</a>
+    {% endif %}
+</div>
+
+{% endblock %}
