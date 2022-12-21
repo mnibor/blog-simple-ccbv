@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import dates, HomeListView, PostDetailView, CategoryListView, AuthorListView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import dates, HomeListView, PostDetailView, CategoryListView, AuthorListView, PostCreateView, PostUpdateView, PostDeleteView, AboutPageView
 
 urlpatterns = [
     # PAGINA DE INICIO
@@ -25,4 +25,7 @@ urlpatterns = [
 
     # Eliminar Post
     path('delete/<int:pk>', PostDeleteView.as_view(), name='delete'),
+
+    # About - Acerca de nosotros
+    path('about/', AboutPageView.as_view(), name='about'),
 ]

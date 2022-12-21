@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.base import TemplateView
 
 from .forms import PostForm
 
@@ -115,3 +116,9 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     model = Post
     success_url = reverse_lazy('home')
+
+class AboutPageView(TemplateView):
+    template_name = "core/about.html"
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
