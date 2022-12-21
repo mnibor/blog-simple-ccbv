@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'core/includes/submenu.html' %}
+
+<div class="mb-5">
+    <h2>Eliminar Post</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="mt-5">
+            <div class="card text-white bg-danger mb-3 mx-auto" style="max-width: 18rem;">
+                <div class="card-header">CONFIRMAR ACCION</div>
+                <div class="card-body">
+                    <h5 class="card-title">Borrando Post...</h5>
+                    <p class="card-text">Está seguro de querer eliminar el Post titulado: "<strong>{{ post }}</strong>"</p>
+
+                    <div class="text-center">
+                        <input class="btn btn-light" type="submit" value="SI, BORRAR EL POST">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

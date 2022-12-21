@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'core/includes/submenu.html' %}
+
+<div class="mb-5">
+    <h2>Modificar Post</h2>
+    {% if 'ok' in request.GET %}
+        <div class="alert alert-success" role="alert">
+            El Post se ha actualizado correctamente 
+            <span>
+                <a class="btn btn-sm btn-success" href={% url 'post' post.id %}>Ver Post</a>
+            </span>
+        </div>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="text-center">
+            <input class="btn btn-lg btn-primary" type="submit" value="MODIFICAR POST">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

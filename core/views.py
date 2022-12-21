@@ -4,7 +4,7 @@ from .models import Post, Category
 from django.contrib.auth.models import User
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import PostForm
 
@@ -97,4 +97,21 @@ class PostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    success_url = reverse_lazy('home')
+
+# Edición del Post
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name_suffix = '_update_form'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('update', args=[self.object.id]) + '?ok'
+
+class PostDeleteView(DeleteView):
+    model = Post
     success_url = reverse_lazy('home')

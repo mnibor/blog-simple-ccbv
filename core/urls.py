@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import dates, HomeListView, PostDetailView, CategoryListView, AuthorListView, PostCreateView
+from .views import dates, HomeListView, PostDetailView, CategoryListView, AuthorListView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
     # PAGINA DE INICIO
@@ -19,4 +19,10 @@ urlpatterns = [
 
     # Crear Post
     path('create/', PostCreateView.as_view(), name='create'),
+
+    # Editar Post
+    path('update/<int:pk>', PostUpdateView.as_view(), name='update'),
+
+    # Eliminar Post
+    path('delete/<int:pk>', PostDeleteView.as_view(), name='delete'),
 ]

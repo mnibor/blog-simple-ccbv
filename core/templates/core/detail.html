@@ -26,9 +26,12 @@
 
 <div class="my-3">
     <a class="btn btn-success rounded-pill" href={% url 'home' %}>Volver al Inicio</a>
-    {% if request.user == post.author %}
-        <a class="btn btn-danger rounded-pill float-end" href="#">Eliminar</a>
-        <a class="btn btn-info rounded-pill float-end" href="#">Editar</a>
+    {% comment %}
+        {% if request.user == post.author %}
+    {% endcomment %}
+    {% if request.user.is_staff %}
+        <a class="btn btn-danger rounded-pill float-end" href={% url 'delete' post.id %}>Eliminar</a>
+        <a class="btn btn-info rounded-pill float-end" href={% url 'update' post.id %}>Editar</a>
     {% endif %}
 </div>
 
