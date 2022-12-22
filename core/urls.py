@@ -6,7 +6,7 @@ urlpatterns = [
     path('', HomeListView.as_view(), name='home'),
 
     # Detalle del Post
-    path('post/<pk>', PostDetailView.as_view(), name='post'),
+    path('post/<int:pk>', PostDetailView.as_view(), name='post'),
 
     # Filtrado por Categoría
     path('category/', CategoryListView.as_view(), name='category'),
