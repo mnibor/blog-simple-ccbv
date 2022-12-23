@@ -64,7 +64,6 @@ class AuthorListView(ListView):
         context['author'] = User.objects.get(id = self.request.GET['aut'])
         return context
 
-
 # Filtrado por Fechas
 def dates(request, month_id, year_id):
 
@@ -113,10 +112,12 @@ class PostUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('update', args=[self.object.id]) + '?ok'
 
+# Eliminar un Post
 class PostDeleteView(DeleteView):
     model = Post
     success_url = reverse_lazy('home')
 
+# Página About
 class AboutPageView(TemplateView):
     template_name = "core/about.html"
 
