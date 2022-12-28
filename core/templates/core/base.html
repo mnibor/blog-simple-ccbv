@@ -18,7 +18,7 @@
 <body>
   <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <img class="bi me-2" width="40" height="32" src="{% static 'core/img/bootstrap-logo.svg' %}">
         <span class="fs-4">Blog Week</span>
       </a>
@@ -48,18 +48,18 @@
               <ol class="list-unstyled mb-0">
                 {% for item in dates %}
                   <li>
-                    {% if item.month == 1 %}<a href={% url 'dates' item.month item.year %}>Enero de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 2 %}<a href={% url 'dates' item.month item.year %}>Febrero de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 3 %}<a href={% url 'dates' item.month item.year %}>Marzo de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 4 %}<a href={% url 'dates' item.month item.year %}>Abril de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 5 %}<a href={% url 'dates' item.month item.year %}>Mayo de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 6 %}<a href={% url 'dates' item.month item.year %}>Junio de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 7 %}<a href={% url 'dates' item.month item.year %}>Julio de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 8 %}<a href={% url 'dates' item.month item.year %}>Agosto de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 9 %}<a href={% url 'dates' item.month item.year %}>Septiembre de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 10 %}<a href={% url 'dates' item.month item.year %}>Octubre de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 11 %}<a href={% url 'dates' item.month item.year %}>Noviembre de {{ item.year }}</a>{% endif %}
-                    {% if item.month == 12 %}<a href={% url 'dates' item.month item.year %}>Diciembre de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 1 %}<a href="{% url 'dates' item.month item.year %}">Enero de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 2 %}<a href="{% url 'dates' item.month item.year %}">Febrero de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 3 %}<a href="{% url 'dates' item.month item.year %}">Marzo de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 4 %}<a href="{% url 'dates' item.month item.year %}">Abril de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 5 %}<a href="{% url 'dates' item.month item.year %}">Mayo de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 6 %}<a href="{% url 'dates' item.month item.year %}">Junio de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 7 %}<a href="{% url 'dates' item.month item.year %}">Julio de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 8 %}<a href="{% url 'dates' item.month item.year %}">Agosto de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 9 %}<a href="{% url 'dates' item.month item.year %}">Septiembre de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 10 %}<a href="{% url 'dates' item.month item.year %}">Octubre de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 11 %}<a href="{% url 'dates' item.month item.year %}">Noviembre de {{ item.year }}</a>{% endif %}
+                    {% if item.month == 12 %}<a href="{% url 'dates' item.month item.year %}">Diciembre de {{ item.year }}</a>{% endif %}
                   </li>
                 {% endfor %}
               </ol>
@@ -70,23 +70,23 @@
               <ol class="list-unstyled">
 
                 {% if LINK_GITHUB.url %}
-                  <li><a href={{ LINK_GITHUB.url }}><i class="{{ LINK_GITHUB.icon }}"></i> GitHub</a></li>
+                  <li><a href="{{ LINK_GITHUB.url }}"><i class="{{ LINK_GITHUB.icon }}"></i> GitHub</a></li>
                 {% endif %}
 
                 {% if LINK_TWITTER.url %}
-                  <li><a href={{ LINK_TWITTER.url }}><i class="{{ LINK_TWITTER.icon }}"></i> Twitter</a></li>
+                  <li><a href="{{ LINK_TWITTER.url }}"><i class="{{ LINK_TWITTER.icon }}"></i> Twitter</a></li>
                 {% endif %}
 
                 {% if LINK_DISCORD.url %}
-                  <li><a href={{ LINK_DISCORD.url }}><i class="{{ LINK_DISCORD.icon }}"></i> Discord</a></li>
+                  <li><a href="{{ LINK_DISCORD.url }}"><i class="{{ LINK_DISCORD.icon }}"></i> Discord</a></li>
                 {% endif %}
 
                 {% if LINK_SLACK.url %}
-                  <li><a href={{ LINK_SLACK.url }}><i class="{{ LINK_SLACK.icon }}"></i> Slack</a></li>
+                  <li><a href="{{ LINK_SLACK.url }}"><i class="{{ LINK_SLACK.icon }}"></i> Slack</a></li>
                 {% endif %}
 
                 {% if LINK_FACEBOOK.url %}
-                  <li><a href={{ LINK_FACEBOOK.url }}><i class="{{ LINK_FACEBOOK.icon }}"></i> Facebook</a></li>
+                  <li><a href="{{ LINK_FACEBOOK.url }}"><i class="{{ LINK_FACEBOOK.icon }}"></i> Facebook</a></li>
                 {% endif %}
 
               </ol>
