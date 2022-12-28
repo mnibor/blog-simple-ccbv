@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     {% load static %}
 
-    <link href={% static 'core/css/bootstrap.min.css' %} rel="stylesheet">
+    <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href={% static 'core/css/blog.css' %} rel="stylesheet">
+    <link href="{% static 'core/css/blog.css' %}" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <img class="bi me-2" width="40" height="32" src={% static 'core/img/bootstrap-logo.svg' %}>
+        <img class="bi me-2" width="40" height="32" src="{% static 'core/img/bootstrap-logo.svg' %}">
         <span class="fs-4">Blog Week</span>
       </a>
     </header>
@@ -38,7 +38,7 @@
               <h4 class="fst-italic">Categorías</h4>
               <ol class="list-unstyled mb-0">
                 {% for item in categories %}
-                  <li><a href={% url 'category' %}?cat={{ item.id }}>{{ item.name }}</a></li>
+                  <li><a href="{% url 'category' %}"?cat={{ item.id }}>{{ item.name }}</a></li>
                 {% endfor %}
               </ol>
             </div>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="p-4 mb-3 bg-light rounded">
-              <a href={% url 'about' %}>Acerca de Nosotros</a>
+              <a href="{% url 'about' %}">Acerca de Nosotros</a>
             </div>
 
           </div>
