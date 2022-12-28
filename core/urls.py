@@ -14,7 +14,7 @@ urlpatterns = [
     # Filtrado por Author
     path('author/', AuthorListView.as_view(), name='author'),
 
-    # FILTRADO POR FECHA
+    # Filtrado por Fecha
     path('dates/<int:month_id>/<int:year_id>', dates, name='dates'),
 
     # Crear Post
